@@ -26,12 +26,18 @@
     Role(s):<security:authentication property="principal.authorities"/>
 
     <hr>
-<p>
-    <a href="/leaders">LeaderShip Meeting (Only for Manager peeps)</a>
-</p>
-<p>
-    <a href="/systems">IT System Meeting (Only for Admin peeps)</a>
-</p>
+
+<security:authorize access="hasRole('MANAGER')">
+    <p>
+        <a href="/leaders">LeaderShip Meeting (Only for Manager peeps)</a>
+    </p>
+</security:authorize>
+<security:authorize access="hasRole('ADMIN')">
+    <p>
+        <a href="/systems">IT System Meeting (Only for Admin peeps)</a>
+    </p>
+</security:authorize>
+
     <hr>
 </p>
 
